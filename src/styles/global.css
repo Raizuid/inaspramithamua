@@ -21,15 +21,29 @@
   --shadow: 0 4px 20px rgba(33, 31, 28, 0.05);
 }
 
-* {
+/* ========================================
+   RESET
+   ======================================== */
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  min-width: 320px;
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
+  width: 100%;
+  min-width: 320px;
   background-color: var(--bg);
   color: var(--black);
-  min-width: 320px;
+  overflow-x: hidden;
 }
 
 button,
@@ -81,9 +95,14 @@ h2 {
   text-transform: uppercase;
 }
 
+/* ========================================
+   APP SHELL
+   ======================================== */
+
 .app-shell {
   min-height: 100vh;
   display: flex;
+  width: 100%;
 }
 
 /* ========================================
@@ -177,7 +196,7 @@ svg {
 }
 
 /* ========================================
-   MAIN CONTENT & LAYOUT
+   MAIN CONTENT
    ======================================== */
 
 .main {
@@ -186,13 +205,19 @@ svg {
   min-height: 100vh;
   display: flex;
   justify-content: center;
+  min-width: 0;
 }
 
 .page {
   max-width: 1100px;
   width: 100%;
   padding: 48px 40px 80px;
+  min-width: 0;
 }
+
+/* ========================================
+   PAGE HEADER
+   ======================================== */
 
 .page-head {
   display: flex;
@@ -227,7 +252,7 @@ svg {
 }
 
 /* ========================================
-   STATS CARDS
+   STATS
    ======================================== */
 
 .stats {
@@ -244,6 +269,7 @@ svg {
   position: relative;
   min-height: 140px;
   box-shadow: var(--shadow);
+  min-width: 0;
 }
 
 .stat > span {
@@ -289,7 +315,7 @@ svg {
 }
 
 /* ========================================
-   APPOINTMENT CARD LIST
+   APPOINTMENT CARD
    ======================================== */
 
 .appointment-card {
@@ -304,6 +330,7 @@ svg {
   margin-bottom: 14px;
   box-shadow: var(--shadow);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  min-width: 0;
 }
 
 .appointment-card:hover {
@@ -327,6 +354,10 @@ svg {
   font-family: 'Cormorant Garamond', serif;
   font-size: 30px;
   color: var(--black);
+}
+
+.card-main {
+  min-width: 0;
 }
 
 .card-main h3 {
@@ -397,7 +428,7 @@ svg {
 }
 
 /* ========================================
-   CONTROLS & TABLES
+   CONTROLS
    ======================================== */
 
 .toolbar {
@@ -432,6 +463,10 @@ textarea:focus {
 .toolbar select {
   width: auto;
 }
+
+/* ========================================
+   TABLE
+   ======================================== */
 
 .desktop-table {
   background: var(--paper);
@@ -477,7 +512,7 @@ th {
 }
 
 /* ========================================
-   MODAL & NOTIFICATIONS
+   MODAL
    ======================================== */
 
 .modal-backdrop {
@@ -538,6 +573,10 @@ th {
   color: white;
 }
 
+/* ========================================
+   NOTIFICATION
+   ======================================== */
+
 .notify-box {
   margin-top: 24px;
   background: #f4eee6;
@@ -563,7 +602,7 @@ th {
 }
 
 /* ========================================
-   LOGIN PAGE
+   LOGIN
    ======================================== */
 
 .login-page {
@@ -623,11 +662,12 @@ th {
 }
 
 /* ========================================
-   CALENDAR
+   CALENDAR DESKTOP
    ======================================== */
 
 .calendar-page {
   width: 100%;
+  min-width: 0;
 }
 
 .calendar-header {
@@ -650,6 +690,8 @@ th {
 }
 
 .calendar-modern {
+  width: 100%;
+  max-width: 100%;
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 18px;
@@ -659,12 +701,14 @@ th {
 
 .calendar-modern .weekdays {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  width: 100%;
   border-bottom: 1px solid var(--line);
   background: #fbf8f3;
 }
 
 .calendar-modern .weekdays span {
+  min-width: 0;
   padding: 14px 10px;
   text-align: center;
   font-size: 11px;
@@ -676,11 +720,14 @@ th {
 
 .calendar-modern .days {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  width: 100%;
 }
 
 .calendar-modern .calendar-day {
   position: relative;
+  min-width: 0;
+  width: 100%;
   min-height: 140px;
   padding: 12px;
   border: 0;
@@ -690,6 +737,7 @@ th {
   text-align: left;
   vertical-align: top;
   transition: background 0.15s ease;
+  overflow: hidden;
 }
 
 .calendar-modern .calendar-day:hover {
@@ -704,6 +752,8 @@ th {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+  min-width: 0;
   margin-bottom: 10px;
 }
 
@@ -711,6 +761,7 @@ th {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
   width: 28px;
   height: 28px;
   border-radius: 50%;
@@ -723,26 +774,38 @@ th {
   display: flex;
   flex-direction: column;
   gap: 6px;
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .calendar-event {
   display: flex;
   flex-direction: column;
   gap: 2px;
+  width: 100%;
+  min-width: 0;
   padding: 8px 10px;
   border-radius: 8px;
   background: #f5efe6;
   border-left: 3px solid var(--gold);
+  overflow: hidden;
 }
 
 .calendar-event span {
+  display: block;
+  min-width: 0;
+  width: 100%;
   font-size: 12px;
   font-weight: 600;
   color: var(--black);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* ========================================
-   HIDDEN MOBILE ELEMENTS ON DESKTOP
+   HIDDEN MOBILE ELEMENTS
    ======================================== */
 
 .mobile-header,
@@ -758,6 +821,10 @@ th {
 
 @media (max-width: 800px) {
 
+  /* ----------------------------------------
+     GENERAL MOBILE
+     ---------------------------------------- */
+
   .sidebar {
     display: none !important;
   }
@@ -765,11 +832,15 @@ th {
   .main {
     margin-left: 0 !important;
     width: 100% !important;
+    max-width: 100%;
+    min-width: 0;
     padding-bottom: 72px;
+    overflow-x: hidden;
   }
 
   .mobile-header {
     display: flex !important;
+    width: 100%;
     height: 62px;
     padding: 0 18px;
     align-items: center;
@@ -781,26 +852,46 @@ th {
   }
 
   .page {
-    padding: 20px 14px 80px !important;
     width: 100%;
     max-width: 100%;
+    min-width: 0;
+    padding: 20px 10px 80px !important;
+    overflow-x: hidden;
   }
+
+  /* ----------------------------------------
+     STATS
+     ---------------------------------------- */
 
   .stats {
     grid-template-columns: 1fr 1fr;
+    min-width: 0;
+  }
+
+  .stat {
+    min-width: 0;
   }
 
   .stat:last-child {
-    grid-column: 1/-1;
+    grid-column: 1 / -1;
   }
+
+  /* ----------------------------------------
+     APPOINTMENT
+     ---------------------------------------- */
 
   .appointment-card {
     grid-template-columns: 1fr auto;
+    min-width: 0;
   }
 
   .card-actions {
-    grid-column: 1/-1;
+    grid-column: 1 / -1;
   }
+
+  /* ----------------------------------------
+     TABLE
+     ---------------------------------------- */
 
   .desktop-table {
     display: none !important;
@@ -810,6 +901,10 @@ th {
     display: block !important;
   }
 
+  /* ----------------------------------------
+     BOTTOM NAVIGATION
+     ---------------------------------------- */
+
   .bottom-nav {
     display: flex !important;
     position: fixed;
@@ -817,6 +912,7 @@ th {
     bottom: 0;
     left: 0;
     right: 0;
+    width: 100%;
     height: 68px;
     background: rgba(255, 253, 250, 0.96);
     backdrop-filter: blur(10px);
@@ -837,6 +933,10 @@ th {
     font-weight: 700;
   }
 
+  /* ----------------------------------------
+     FLOATING BUTTON
+     ---------------------------------------- */
+
   .fab {
     display: grid !important;
     place-items: center;
@@ -852,12 +952,13 @@ th {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
   }
 
-  /* ========================================
-     LOGIN — MOBILE
-     ======================================== */
+  /* ----------------------------------------
+     LOGIN MOBILE
+     ---------------------------------------- */
 
   .login-page {
     grid-template-columns: 1fr;
+    min-height: 100vh;
   }
 
   .login-art {
@@ -869,6 +970,7 @@ th {
   }
 
   .login-box {
+    width: calc(100% - 40px);
     padding: 40px 0;
     max-width: 420px;
   }
@@ -878,100 +980,306 @@ th {
   }
 
   /* ========================================
-     CALENDAR — MOBILE FIX
+     CALENDAR MOBILE
      ======================================== */
 
-  .calendar-modern {
+  .calendar-page {
     width: 100%;
     max-width: 100%;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .calendar-header {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .calendar-modern {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
     overflow: hidden;
     border-radius: 12px;
   }
 
-  .calendar-modern .weekdays,
-  .calendar-modern .days {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0 !important;
-  }
+  /* HEADER HARI */
 
   .calendar-modern .weekdays {
     display: grid;
     grid-template-columns: repeat(7, minmax(0, 1fr));
-  }
 
-  .calendar-modern .days {
-    display: grid;
-    grid-template-columns: repeat(7, minmax(0, 1fr));
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
   }
 
   .calendar-modern .weekdays span {
-    min-width: 0;
+    display: block;
+
     width: 100%;
-    padding: 8px 1px;
+    max-width: 100%;
+    min-width: 0;
+
+    margin: 0;
+    padding: 8px 0;
+
     text-align: center;
+
     font-size: 9px;
-    letter-spacing: 0.03em;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  /* GRID TANGGAL */
+
+  .calendar-modern .days {
+    display: grid;
+
+    /*
+      PENTING:
+      7 kolom SELALU sama besar.
+      minmax(0, 1fr) mencegah isi
+      memaksa kolom menjadi lebih besar.
+    */
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    margin: 0;
+    padding: 0;
+
     overflow: hidden;
   }
+
+  /* SETIAP CELL TANGGAL */
 
   .calendar-modern .calendar-day {
+    position: relative;
+
+    width: 100%;
+    max-width: 100%;
     min-width: 0 !important;
-    width: 100%;
-    min-height: 72px;
+
+    /*
+      SEMUA CELL SAMA TINGGI
+    */
     height: 72px;
+    min-height: 72px;
+    max-height: 72px;
+
+    margin: 0;
     padding: 4px;
+
+    border: 0;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+
+    background: var(--paper);
+
+    text-align: left;
+
+    overflow: hidden;
+
+    /*
+      Isi cell tidak boleh mengubah
+      ukuran grid.
+    */
+    contain: layout paint;
+  }
+
+  /*
+    Hilangkan border kanan pada
+    kolom terakhir setiap baris.
+  */
+
+  .calendar-modern .calendar-day:nth-child(7n) {
+    border-right: 0;
+  }
+
+  /* NOMOR TANGGAL */
+
+  .calendar-modern .calendar-day-number {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    margin: 0 0 4px 0;
+
     overflow: hidden;
   }
 
-  .calendar-day-number {
-    min-width: 0;
-    margin-bottom: 5px;
-  }
+  .calendar-modern .calendar-day-number > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  .calendar-day-number > span {
     flex-shrink: 0;
+
     width: 22px;
+    min-width: 22px;
+    max-width: 22px;
+
     height: 22px;
+    min-height: 22px;
+    max-height: 22px;
+
+    border-radius: 50%;
+
     font-size: 10px;
+    line-height: 1;
+
+    overflow: hidden;
   }
 
-  .calendar-events {
-    min-width: 0;
+  /* AREA EVENT */
+
+  .calendar-modern .calendar-events {
+    display: flex;
+    flex-direction: column;
+
     width: 100%;
     max-width: 100%;
+    min-width: 0;
+
     gap: 3px;
+
     overflow: hidden;
   }
 
-  .calendar-event {
-    min-width: 0;
+  /* EVENT */
+
+  .calendar-modern .calendar-event {
+    display: block;
+
     width: 100%;
     max-width: 100%;
+    min-width: 0;
+
     padding: 4px 5px;
-    border-left-width: 2px;
+
+    border-radius: 6px;
+
+    border-left: 2px solid var(--gold);
+
+    background: #f5efe6;
+
     overflow: hidden;
   }
 
-  .calendar-event span {
+  /* TEXT EVENT */
+
+  .calendar-modern .calendar-event span {
     display: block;
-    min-width: 0;
+
+    width: 100%;
     max-width: 100%;
-    font-size: 9px;
+    min-width: 0;
+
+    font-size: 8px;
+    line-height: 1.2;
+    font-weight: 600;
+
     white-space: nowrap;
+
     overflow: hidden;
+
     text-overflow: ellipsis;
   }
 
+  /* ----------------------------------------
+     CALENDAR CONTROLS
+     ---------------------------------------- */
+
   .calendar-controls {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    display: flex;
     flex-wrap: wrap;
+
     justify-content: center;
+    align-items: center;
+
     gap: 8px;
+
+    overflow: hidden;
   }
 
   .month-nav {
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    display: flex;
     justify-content: space-between;
+    align-items: center;
+  }
+
+  .today-button {
+    max-width: 100%;
+    white-space: nowrap;
+  }
+}
+
+/* ========================================
+   EXTRA SMALL PHONES
+   ======================================== */
+
+@media (max-width: 380px) {
+
+  .page {
+    padding-left: 7px !important;
+    padding-right: 7px !important;
+  }
+
+  .calendar-modern .calendar-day {
+    height: 66px;
+    min-height: 66px;
+    max-height: 66px;
+    padding: 3px;
+  }
+
+  .calendar-modern .calendar-day-number > span {
+    width: 20px;
+    min-width: 20px;
+    max-width: 20px;
+
+    height: 20px;
+    min-height: 20px;
+    max-height: 20px;
+
+    font-size: 9px;
+  }
+
+  .calendar-modern .calendar-event {
+    padding: 3px 4px;
+  }
+
+  .calendar-modern .calendar-event span {
+    font-size: 7px;
+  }
+
+  .calendar-modern .weekdays span {
+    font-size: 8px;
   }
 }
 
