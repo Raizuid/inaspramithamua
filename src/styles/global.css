@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@400;500;600;700&display=swap');
 
 /* ========================================
@@ -84,7 +85,6 @@ h2 {
   min-height: 100vh;
   display: flex;
 }
-
 
 /* ========================================
    DESKTOP SIDEBAR
@@ -176,7 +176,6 @@ svg {
   color: #9a4f4f;
 }
 
-
 /* ========================================
    MAIN CONTENT & LAYOUT
    ======================================== */
@@ -226,7 +225,6 @@ svg {
 .wide {
   width: 100%;
 }
-
 
 /* ========================================
    STATS CARDS
@@ -289,7 +287,6 @@ svg {
   justify-content: space-between;
   margin-bottom: 18px;
 }
-
 
 /* ========================================
    APPOINTMENT CARD LIST
@@ -399,7 +396,6 @@ svg {
   opacity: .65;
 }
 
-
 /* ========================================
    CONTROLS & TABLES
    ======================================== */
@@ -479,7 +475,6 @@ th {
   margin: 8px 0 18px;
   color: var(--muted);
 }
-
 
 /* ========================================
    MODAL & NOTIFICATIONS
@@ -567,9 +562,8 @@ th {
   margin-left: auto;
 }
 
-
 /* ========================================
-   LOGIN PAGE — ORIGINAL STYLE
+   LOGIN PAGE
    ======================================== */
 
 .login-page {
@@ -627,7 +621,6 @@ th {
   font-size: 12px;
   font-weight: 600;
 }
-
 
 /* ========================================
    CALENDAR
@@ -748,7 +741,6 @@ th {
   color: var(--black);
 }
 
-
 /* ========================================
    HIDDEN MOBILE ELEMENTS ON DESKTOP
    ======================================== */
@@ -759,7 +751,6 @@ th {
 .mobile-list {
   display: none !important;
 }
-
 
 /* ========================================
    RESPONSIVE MOBILE
@@ -791,6 +782,8 @@ th {
 
   .page {
     padding: 20px 14px 80px !important;
+    width: 100%;
+    max-width: 100%;
   }
 
   .stats {
@@ -859,7 +852,6 @@ th {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
   }
 
-
   /* ========================================
      LOGIN — MOBILE
      ======================================== */
@@ -885,36 +877,90 @@ th {
     font-size: 52px;
   }
 
-
   /* ========================================
-     CALENDAR MOBILE
+     CALENDAR — MOBILE FIX
      ======================================== */
 
   .calendar-modern {
     width: 100%;
-    overflow-x: hidden;
+    max-width: 100%;
+    overflow: hidden;
     border-radius: 12px;
   }
 
   .calendar-modern .weekdays,
   .calendar-modern .days {
-    min-width: 100% !important;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0 !important;
+  }
+
+  .calendar-modern .weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+  }
+
+  .calendar-modern .days {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
   }
 
   .calendar-modern .weekdays span {
-    padding: 8px 2px;
+    min-width: 0;
+    width: 100%;
+    padding: 8px 1px;
+    text-align: center;
     font-size: 9px;
+    letter-spacing: 0.03em;
+    overflow: hidden;
   }
 
   .calendar-modern .calendar-day {
-    min-height: 65px;
+    min-width: 0 !important;
+    width: 100%;
+    min-height: 72px;
+    height: 72px;
     padding: 4px;
+    overflow: hidden;
+  }
+
+  .calendar-day-number {
+    min-width: 0;
+    margin-bottom: 5px;
   }
 
   .calendar-day-number > span {
+    flex-shrink: 0;
     width: 22px;
     height: 22px;
     font-size: 10px;
+  }
+
+  .calendar-events {
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+    gap: 3px;
+    overflow: hidden;
+  }
+
+  .calendar-event {
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+    padding: 4px 5px;
+    border-left-width: 2px;
+    overflow: hidden;
+  }
+
+  .calendar-event span {
+    display: block;
+    min-width: 0;
+    max-width: 100%;
+    font-size: 9px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .calendar-controls {
@@ -928,3 +974,4 @@ th {
     justify-content: space-between;
   }
 }
+
