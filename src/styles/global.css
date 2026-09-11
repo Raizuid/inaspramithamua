@@ -3,6 +3,7 @@
 /* ========================================
    GLOBAL VARIABLES & RESET
    ======================================== */
+
 :root {
   color-scheme: light;
   font-family: Jost, Arial, sans-serif;
@@ -30,7 +31,10 @@ body {
   min-width: 320px;
 }
 
-button, input, select, textarea {
+button,
+input,
+select,
+textarea {
   font: inherit;
 }
 
@@ -42,11 +46,15 @@ button {
   transition: all 0.2s ease;
 }
 
-h1, h2, h3, p {
+h1,
+h2,
+h3,
+p {
   margin: 0;
 }
 
-h1, h2 {
+h1,
+h2 {
   font-family: 'Cormorant Garamond', Georgia, serif;
 }
 
@@ -77,9 +85,11 @@ h2 {
   display: flex;
 }
 
+
 /* ========================================
    DESKTOP SIDEBAR
    ======================================== */
+
 .sidebar {
   width: 240px;
   padding: 32px 24px;
@@ -122,7 +132,8 @@ h2 {
   gap: 8px;
 }
 
-.sidebar nav a, .bottom-nav a {
+.sidebar nav a,
+.bottom-nav a {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -165,9 +176,11 @@ svg {
   color: #9a4f4f;
 }
 
+
 /* ========================================
    MAIN CONTENT & LAYOUT
    ======================================== */
+
 .main {
   margin-left: 240px;
   width: calc(100% - 240px);
@@ -214,9 +227,11 @@ svg {
   width: 100%;
 }
 
+
 /* ========================================
    STATS CARDS
    ======================================== */
+
 .stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -275,9 +290,11 @@ svg {
   margin-bottom: 18px;
 }
 
+
 /* ========================================
    APPOINTMENT CARD LIST
    ======================================== */
+
 .appointment-card {
   background: var(--paper);
   border: 1px solid var(--line);
@@ -333,7 +350,8 @@ svg {
   text-align: right;
 }
 
-.card-money span, .status {
+.card-money span,
+.status {
   font-size: 10px;
   letter-spacing: .1em;
   text-transform: uppercase;
@@ -357,7 +375,8 @@ svg {
   margin-top: 4px;
 }
 
-.card-actions button, .desktop-table button {
+.card-actions button,
+.desktop-table button {
   padding: 8px 14px;
   border-radius: 8px;
   font-size: 12px;
@@ -380,16 +399,21 @@ svg {
   opacity: .65;
 }
 
+
 /* ========================================
    CONTROLS & TABLES
    ======================================== */
+
 .toolbar {
   display: flex;
   gap: 12px;
   margin-bottom: 24px;
 }
 
-.toolbar input, .toolbar select, input, textarea {
+.toolbar input,
+.toolbar select,
+input,
+textarea {
   background: var(--paper);
   border: 1px solid var(--line);
   border-radius: 10px;
@@ -399,7 +423,9 @@ svg {
   color: var(--black);
 }
 
-.toolbar input:focus, input:focus, textarea:focus {
+.toolbar input:focus,
+input:focus,
+textarea:focus {
   border-color: var(--gold);
 }
 
@@ -425,7 +451,8 @@ table {
   min-width: 850px;
 }
 
-th, td {
+th,
+td {
   text-align: left;
   padding: 16px 20px;
   border-bottom: 1px solid var(--line);
@@ -453,9 +480,11 @@ th {
   color: var(--muted);
 }
 
+
 /* ========================================
    MODAL & NOTIFICATIONS
    ======================================== */
+
 .modal-backdrop {
   position: fixed;
   inset: 0;
@@ -538,9 +567,72 @@ th {
   margin-left: auto;
 }
 
+
+/* ========================================
+   LOGIN PAGE — ORIGINAL STYLE
+   ======================================== */
+
+.login-page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.login-art {
+  background: #e9dfd3;
+  display: grid;
+  place-content: center;
+  text-align: center;
+}
+
+.monogram {
+  font: 180px/1 Georgia, serif;
+}
+
+.login-art p {
+  letter-spacing: .2em;
+  font-weight: 700;
+}
+
+.login-art small {
+  letter-spacing: .3em;
+  color: var(--gold);
+  margin-top: 8px;
+}
+
+.login-box {
+  max-width: 420px;
+  width: calc(100% - 40px);
+  align-self: center;
+  justify-self: center;
+}
+
+.login-box h1 {
+  font-size: 64px;
+  margin: 8px 0;
+}
+
+.login-box .muted {
+  margin-bottom: 28px;
+}
+
+.login-box form {
+  display: grid;
+  gap: 16px;
+}
+
+.login-box label {
+  display: grid;
+  gap: 7px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+
 /* ========================================
    CALENDAR
    ======================================== */
+
 .calendar-page {
   width: 100%;
 }
@@ -656,9 +748,11 @@ th {
   color: var(--black);
 }
 
+
 /* ========================================
-   HIDDEN MOBILE ELEMENTS ON DESKTOP (FIX BUG)
+   HIDDEN MOBILE ELEMENTS ON DESKTOP
    ======================================== */
+
 .mobile-header,
 .bottom-nav,
 .fab,
@@ -666,10 +760,13 @@ th {
   display: none !important;
 }
 
+
 /* ========================================
-   RESPONSIVE MOBILE (MAKSIMAL 800PX)
+   RESPONSIVE MOBILE
    ======================================== */
+
 @media (max-width: 800px) {
+
   .sidebar {
     display: none !important;
   }
@@ -759,10 +856,40 @@ th {
     background: var(--black);
     color: white;
     z-index: 11;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
   }
 
-  /* Kalender HP Centered & Responsive */
+
+  /* ========================================
+     LOGIN — MOBILE
+     ======================================== */
+
+  .login-page {
+    grid-template-columns: 1fr;
+  }
+
+  .login-art {
+    min-height: 35vh;
+  }
+
+  .monogram {
+    font-size: 100px;
+  }
+
+  .login-box {
+    padding: 40px 0;
+    max-width: 420px;
+  }
+
+  .login-box h1 {
+    font-size: 52px;
+  }
+
+
+  /* ========================================
+     CALENDAR MOBILE
+     ======================================== */
+
   .calendar-modern {
     width: 100%;
     overflow-x: hidden;
